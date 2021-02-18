@@ -12,7 +12,7 @@
 
 <body>
     <header>
-        <img src="./assets/logo.svg" alt="Logo Dev Finance">
+        <img id="logo" src="./assets/logo.svg" alt="Logo Dev Finance">
     </header>
 
     <main class="container">
@@ -47,7 +47,9 @@
         <section id="transaction">
             <h2 class="sr-only">Transações</h2>
 
-            <a href="#" class="button new">+ Nova Transação</a>
+            <a href="#" 
+                onclick="Modal.open()"    
+                class="button new">+ Nova Transação</a>
 
             <table id="data-table">
                 <thead>
@@ -88,7 +90,7 @@
         </section>
     </main>
 
-    <div class="modal-overlay active">
+    <div class="modal-overlay">
         <div class="modal">
            <div id="form">
                <h2>Nova Transação</h2>
@@ -132,7 +134,9 @@
                    </div>
 
                    <div class="input-group actions">
-                       <a href="#" class="button cancel">Cancelar</a>
+                       <a href="#" 
+                            onclick="Modal.close()"
+                            class="button cancel">Cancelar</a>
                        <button>Salvar</button>
                    </div>
 
@@ -142,6 +146,24 @@
     </div>
 
     <footer><p>dev.fincance$</p></footer>
+
+    <script>
+        const Modal = {
+            open() {
+                document
+                    .querySelector('.modal-overlay')
+                    .classList
+                    .add('active')
+            },
+
+            close() {
+                document
+                    .querySelector('.modal-overlay')
+                    .classList
+                    .remove('active')
+            }
+        }
+    </script>
 
 </body>
 
